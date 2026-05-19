@@ -216,3 +216,41 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# =========================
+# Private / raw datasets
+# =========================
+Assignments/**/data/raw/
+Assignments/**/raw/
+**/data/raw/
+**/raw/
+
+_chat.txt
+*.txt
+
+# But allow assignment explanation notes if you want them on GitHub
+!Assignments/**/explanations.txt
+!Assignments/**/requirements.txt
+
+# =========================
+# Python environment
+# =========================
+.venv/
+venv/
+env/
+
+# =========================
+# Python cache
+# =========================
+__pycache__/
+*.pyc
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# System files
+# =========================
+.DS_Store
+Thumbs.db

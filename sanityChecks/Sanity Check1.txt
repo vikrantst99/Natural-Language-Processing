@@ -1,0 +1,101 @@
+================================================================================
+          VS CODE TERMINAL CHEAT SHEET: PYTHON & VENV SANITY CHECKS
+================================================================================
+
+--------------------------------------------------------------------------------
+1. WHICH PYTHON / VENV IS RUNNING NOW? (THE MOST IMPORTANT CHECK)
+--------------------------------------------------------------------------------
+Run these commands to find out exactly which Python folder your terminal is using.
+
+• On Windows:
+  where python
+
+• On Mac / Linux:
+  which python
+
+👉 SANITY CHECK: 
+   - If it points to your project folder (e.g., C:\...\Project\.venv\Scripts\python.exe 
+     or /Users/.../Project/.venv/bin/python), you are SAFELY in your venv!
+   - If it points to your AppData or Program Files or /usr/bin/, you are using the
+     Global system Python. Stop and activate your venv.
+
+--------------------------------------------------------------------------------
+2. ALTERNATIVE PATH CHECK (VIA INTERACTIVE PYTHON)
+--------------------------------------------------------------------------------
+If 'where/which' gives multiple results and you are confused, ask Python itself 
+exactly where its home environment directory is:
+
+  python -c "import sys; print(sys.prefix)"
+
+👉 SANITY CHECK: 
+   The folder path printed should end precisely with your virtual environment's 
+   name (usually "\.venv" or "/.venv").
+
+--------------------------------------------------------------------------------
+3. WHAT PACKAGES ARE INSTALLED HERE?
+--------------------------------------------------------------------------------
+Before running your script, check if the libraries your code needs (like nltk, 
+pandas, or textblob) actually exist inside this specific environment.
+
+• List all installed libraries:
+  python -m pip list
+
+• Search specifically for one library (e.g., nltk):
+  python -m pip show nltk
+
+👉 SANITY CHECK: 
+   If 'pip show nltk' prints a Version number and Summary, it is installed! If it
+   says "Package(s) not found", you must run the install commands.
+
+--------------------------------------------------------------------------------
+4. FORCING INSTALLS DIRECTLY INTO THE ACTIVE ENVIRONMENT
+--------------------------------------------------------------------------------
+Sometimes typing just "pip install" accidentally installs packages globally. Always 
+prefix your install commands with "python -m" to guarantee they go into your 
+active VS Code terminal environment.
+
+• Install required NLP packages:
+  python -m pip install pandas nltk textblob spacy wordcloud
+
+• Upgrade pip (if the terminal complains it is outdated):
+  python -m pip install --upgrade pip
+
+--------------------------------------------------------------------------------
+5. TROUBLESHOOTING: MANUAL VENV ACTIVATION
+--------------------------------------------------------------------------------
+If VS Code fails to auto-activate your folder named ".venv", you can force-activate 
+it by running the activation script manually from your project root.
+
+• On Windows (PowerShell - standard default in VS Code):
+  .venv\Scripts\Activate.ps1
+
+• On Windows (Command Prompt / CMD):
+  .venv\Scripts\activate.bat
+
+• On Mac / Linux:
+  source .venv/bin/activate
+
+👉 SANITY CHECK: 
+   Once executed successfully, you should see "(.venv)" appear at the very left 
+   of your terminal line prompt.
+
+--------------------------------------------------------------------------------
+6. EMERGENCY "NLTK DOWNLOAD" FIX FOR UNIVERSITY/MAC SSL ERRORS
+--------------------------------------------------------------------------------
+If your code runs but crashes when downloading NLTK data (like 'punkt') with a 
+long "SSL: CERTIFICATE_VERIFY_FAILED" error, add this code snippet to the absolute 
+TOP of your Python script (above your other imports):
+
+import os
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
+================================================================================
+                    QUICK WORKFLOW FOR EVERY NEW SESSION:
+================================================================================
+1. Open project folder in VS Code.
+2. Press Ctrl+Shift+P (or Cmd+Shift+P) -> "Python: Select Interpreter" -> Choose .venv
+3. Open a brand new terminal (Trash the old terminal panel if it was open).
+4. Run: 'where python' (or 'which python') to verify the path has ".venv" in it.
+5. Run your script!
+================================================================================

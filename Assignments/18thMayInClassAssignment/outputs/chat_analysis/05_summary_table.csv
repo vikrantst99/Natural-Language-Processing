@@ -1,0 +1,11 @@
+﻿metric,value
+Total parsed WhatsApp rows,394
+Date of first parsed message,2025-10-07 13:44:50
+Date of latest parsed message,2026-05-11 13:30:57
+Last 6 months cutoff date,2025-11-11 13:30:57
+Rows after last 6 months filter,175
+Rows used for NLP after removing system/media/deleted messages,112
+Unique senders in full chat,53
+Unique active senders in NLP dataset,35
+Sentence-level rows after splitting,212
+Average sentiment score,0.2086

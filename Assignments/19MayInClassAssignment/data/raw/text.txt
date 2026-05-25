@@ -1,0 +1,21 @@
+Natural Language Processing, also known as NLP, is one of the most important areas of Artificial Intelligence.
+Today, companies use NLP in chatbots, search engines, recommendation systems, social media analytics,
+customer feedback analysis, automatic translation, and voice assistants.
+ 
+In 2026, many organizations are collecting huge amounts of text data from websites, emails, reviews,
+online forms, tweets, product comments, and support tickets. However, this text data is often messy.
+For example, a customer may write: "I LOVE this product!!! Visit https://example.com/product123 #Amazing #AI".
+Another user may write: "The service was not good... I waited 45 minutes and no one replied."
+ 
+Before applying machine learning or deep learning models, we need to clean and prepare the text.
+This step is called text preprocessing. It may include converting text to lowercase, removing URLs,
+removing punctuation, removing numbers, tokenizing sentences into words, removing stop words,
+stemming, lemmatization, and sometimes removing emojis or special characters.
+ 
+Good preprocessing can improve the quality of NLP models. However, preprocessing should be done carefully.
+For example, removing the word "not" from the sentence "I am not happy" can change the meaning completely.
+Similarly, removing hashtags may not always be a good idea in social media analytics because hashtags
+can contain useful information about topics, opinions, or trends.
+ 
+Your task is to build a complete NLP preprocessing pipeline for this text.
+You should clean the text step by step and observe how the output changes after each step.
